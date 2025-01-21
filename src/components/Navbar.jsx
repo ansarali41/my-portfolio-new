@@ -27,7 +27,7 @@ const Navbar = () => {
             <div className="max-w-7xl mx-auto px-6">
                 <div className="flex justify-between items-center">
                     <a href="#" className="text-2xl font-bold hero-gradient bg-clip-text text-transparent">
-                        Ansar Ali
+                        {'</ Ansar Ali >'}
                     </a>
 
                     {/* Desktop Menu */}

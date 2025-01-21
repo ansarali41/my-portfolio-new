@@ -1,9 +1,7 @@
 'use client';
-import Image from 'next/image';
 import { FaNodeJs, FaReact } from 'react-icons/fa';
 import { SiMongodb, SiMysql, SiNestjs, SiNextdotjs, SiTailwindcss, SiTypescript } from 'react-icons/si';
 import { TypeAnimation } from 'react-type-animation';
-import myImage from '../../public/images/me.png';
 
 const Hero = () => {
     const techStack = [
@@ -91,7 +89,7 @@ const Hero = () => {
                         <div className="relative w-64 h-64 md:w-96 md:h-96 floating">
                             <div className="absolute inset-0 hero-gradient rounded-full blur-2xl opacity-20 scale-110" />
                             <div className="relative rounded-full overflow-hidden border-4 border-white dark:border-gray-800 shadow-2xl">
-                                <Image src={myImage} alt="MD Ansar Ali" fill className="object-cover" priority />
+                                <img src="/images/me.png" alt="Ansar Ali" />
                             </div>
                         </div>
                     </div>

@@ -70,15 +70,15 @@ const Skills = () => {
                 </div>
 
                 <div className="grid md:grid-cols-3 gap-8">
-                    {skillCategories.map((category, index) => (
+                    {skillCategories?.map((category, index) => (
                         <div key={index} className="card p-8 hover:translate-y-[-4px] transition-all duration-300">
                             <div className="flex items-center gap-3 mb-6">
-                                <div className="rounded-lg bg-gray-100 dark:bg-gray-800 p-3">{category.icon}</div>
-                                <h3 className="text-xl font-semibold">{category.title}</h3>
+                                <div className="rounded-lg bg-gray-100 dark:bg-gray-800 p-3">{category?.icon}</div>
+                                <h3 className="text-xl font-semibold">{category?.title}</h3>
                             </div>
 
                             <div className="space-y-6">
-                                {category.skills.map(skill => (
+                                {category?.skills?.map(skill => (
                                     <div key={skill.name}>
                                         <div className="flex justify-between mb-2">
                                             <span className="font-medium text-gray-700 dark:text-gray-300">{skill.name}</span>

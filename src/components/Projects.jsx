@@ -58,7 +58,7 @@ const Projects = () => {
                 {/* Project Categories */}
                 <div className="flex justify-center mb-12">
                     <div className="inline-flex rounded-lg bg-gray-100 dark:bg-gray-800 p-2">
-                        {categories.map(category => (
+                        {categories?.map(category => (
                             <button
                                 key={category.id}
                                 onClick={() => setActiveTab(category.id)}
@@ -74,7 +74,7 @@ const Projects = () => {
 
                 {/* Projects Grid */}
                 <div className="grid md:grid-cols-2 gap-8">
-                    {filteredProjects.map((project, index) => (
+                    {filteredProjects?.map((project, index) => (
                         <div key={index} className="group card overflow-hidden hover:translate-y-[-4px] transition-all duration-300">
                             {/* Project Image */}
                             <div className="relative h-64 overflow-hidden">
@@ -83,7 +83,7 @@ const Projects = () => {
                                 <div className="absolute bottom-4 left-4 right-4 text-white">
                                     <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
                                     <div className="flex flex-wrap gap-2">
-                                        {project.technologies.slice(0, 3).map(tech => (
+                                        {project?.technologies?.slice(0, 3)?.map(tech => (
                                             <span key={tech} className="text-sm px-2 py-1 rounded-full bg-white/20 backdrop-blur-sm">
                                                 {tech}
                                             </span>
@@ -101,7 +101,7 @@ const Projects = () => {
                                 <div className="space-y-4">
                                     <h4 className="font-medium">Key Features:</h4>
                                     <ul className="space-y-2">
-                                        {project.features.map((feature, index) => (
+                                        {project?.features?.map((feature, index) => (
                                             <li key={index} className="flex items-center gap-2 text-gray-600 dark:text-gray-400">
                                                 <svg className="w-5 h-5 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />

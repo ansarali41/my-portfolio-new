@@ -1,8 +1,22 @@
 'use client';
 import Image from 'next/image';
+import { FaNodeJs, FaReact } from 'react-icons/fa';
+import { SiMongodb, SiMysql, SiNestjs, SiNextdotjs, SiTailwindcss, SiTypescript } from 'react-icons/si';
 import { TypeAnimation } from 'react-type-animation';
+import myImage from '../../public/images/me.png';
 
 const Hero = () => {
+    const techStack = [
+        { name: 'Node.js', icon: <FaNodeJs className="text-[#339933] w-8 h-8" /> },
+        { name: 'Nest.js', icon: <SiNestjs className="text-[#E0234E] w-7 h-7" /> },
+        { name: 'TypeScript', icon: <SiTypescript className="text-[#3178C6] w-7 h-7" /> },
+        { name: 'React.js', icon: <FaReact className="text-[#61DAFB] w-8 h-8" /> },
+        { name: 'Next.js', icon: <SiNextdotjs className="text-black dark:text-white w-8 h-8" /> },
+        { name: 'Tailwind CSS', icon: <SiTailwindcss className="text-[#06B6D4] w-8 h-8" /> },
+        { name: 'MongoDB', icon: <SiMongodb className="text-[#47A248] w-8 h-8" /> },
+        { name: 'MySQL', icon: <SiMysql className="text-[#4479A1] w-8 h-8" /> },
+    ];
+
     return (
         <div className="relative min-h-screen">
             {/* Background gradient */}
@@ -58,9 +72,14 @@ const Hero = () => {
                         <div className="pt-8">
                             <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">Tech Stack</p>
                             <div className="flex flex-wrap gap-4">
-                                {['typescript', 'react', 'nodejs', 'nextjs'].map(tech => (
-                                    <div key={tech} className="card p-3">
-                                        <Image src={`/${tech}.svg`} alt={tech} width={24} height={24} className="dark:invert" />
+                                {techStack?.map((tech, index) => (
+                                    <div
+                                        key={index}
+                                        className="flex items-center gap-2 bg-white dark:bg-gray-800 px-4 py-2 rounded-full shadow-sm hover:shadow-md transition-shadow"
+                                        title={tech.name}
+                                    >
+                                        {tech.icon}
+                                        <span className="text-sm font-medium">{tech.name}</span>
                                     </div>
                                 ))}
                             </div>
@@ -72,7 +91,7 @@ const Hero = () => {
                         <div className="relative w-64 h-64 md:w-96 md:h-96 floating">
                             <div className="absolute inset-0 hero-gradient rounded-full blur-2xl opacity-20 scale-110" />
                             <div className="relative rounded-full overflow-hidden border-4 border-white dark:border-gray-800 shadow-2xl">
-                                <Image src="/profile.jpg" alt="MD Ansar Ali" fill className="object-cover" priority />
+                                <Image src={myImage} alt="MD Ansar Ali" fill className="object-cover" priority />
                             </div>
                         </div>
                     </div>

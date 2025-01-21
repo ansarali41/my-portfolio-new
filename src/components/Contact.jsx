@@ -14,8 +14,8 @@ const Contact = () => {
                 </svg>
             ),
             title: 'Email',
-            value: 'ansarali.sdp75@gmail.com',
-            link: 'mailto:ansarali.sdp75@gmail.com',
+            value: 'ansar.ict14@gmail.com',
+            link: 'mailto:ansar.ict14@gmail.com',
         },
         {
             icon: (
@@ -83,19 +83,19 @@ const Contact = () => {
                 <div className="max-w-3xl mx-auto">
                     {/* Contact Info */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        {contactInfo.map((info, index) => (
+                        {contactInfo?.map((info, index) => (
                             <div key={index} className="card p-6 hover:translate-y-[-4px] transition-all duration-300">
                                 <div className="flex items-center gap-4">
                                     <div className="rounded-lg bg-gray-100 dark:bg-gray-800 p-3 flex-shrink-0">{info.icon}</div>
                                     <div className="flex-grow">
-                                        <h3 className="font-semibold mb-2">{info.title}</h3>
-                                        {info.link ? (
+                                        <h3 className="font-semibold mb-2">{info?.title}</h3>
+                                        {info?.link ? (
                                             <a href={info.link} className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
                                                 {info.value}
                                             </a>
-                                        ) : info.socials ? (
+                                        ) : info?.socials ? (
                                             <div className="flex items-center gap-6">
-                                                {info.socials.map((social, socialIndex) => (
+                                                {info?.socials?.map((social, socialIndex) => (
                                                     <a
                                                         key={socialIndex}
                                                         href={social.url}

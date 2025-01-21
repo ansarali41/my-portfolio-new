@@ -40,11 +40,6 @@ const Hero = () => {
                             </div>
                         </div>
 
-                        <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl">
-                            Passionate about building scalable, reliable, and efficient applications. Specializing in back-end development with expertise in modern frameworks and
-                            databases.
-                        </p>
-
                         <div className="flex flex-wrap gap-4">
                             <a
                                 href="https://www.linkedin.com/in/dev-ansar-ali"

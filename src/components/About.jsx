@@ -50,7 +50,10 @@ const About = () => {
                     <h2 className="text-3xl font-bold">
                         About <span className="hero-gradient bg-clip-text text-transparent">Me</span>
                     </h2>
-                    <p className="mt-4 text-gray-600 dark:text-gray-400">Passionate software engineer with a focus on building scalable applications</p>
+                    <p className="mt-4 text-gray-600 dark:text-gray-400">
+                        Passionate software engineer with a focus on building scalable, reliable, and efficient applications. <br /> Specializing in back-end development with
+                        expertise in modern frameworks and databases.
+                    </p>
                 </div>
 
                 <div className="grid md:grid-cols-3 gap-8">

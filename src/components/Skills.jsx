@@ -51,6 +51,8 @@ const Skills = () => {
                 { name: 'Tailwind CSS', level: 90 },
                 { name: 'Material UI', level: 85 },
                 { name: 'Bootstrap', level: 90 },
+                { name: 'shadcn/ui', level: 80 },
+                { name: 'CSS', level: 85 },
             ],
         },
     ];
@@ -101,7 +103,7 @@ const Skills = () => {
                 <div className="mt-16">
                     <h3 className="text-xl font-semibold text-center mb-8">Additional Tools & Technologies</h3>
                     <div className="flex flex-wrap justify-center gap-4">
-                        {['Docker', 'AWS', 'Kubernetes', 'CI/CD', 'Github Action', 'Git', 'RabbitMQ', 'REST APIs', 'GraphQL'].map(tool => (
+                        {['Microservices', 'Docker', 'AWS', 'Kubernetes', 'CI/CD', 'Github Action', 'Git', 'RabbitMQ', 'REST APIs', 'GraphQL'].map(tool => (
                             <span key={tool} className="px-4 py-2 rounded-full bg-white dark:bg-gray-800 shadow-md hover:shadow-lg transition-all duration-300">
                                 {tool}
                             </span>

@@ -17,8 +17,8 @@ const Projects = () => {
             link: 'https://serviceadmin.amharctech.com',
             github: 'https://github.com/yourusername/saas-platform',
             category: 'backend',
-            technologies: ['Node.js', 'Socket.IO', 'TypeORM', 'React', 'Redis'],
-            features: ['Real-time updates and notifications', 'Multi-tenant architecture', 'Advanced caching system', 'Automated deployment pipeline'],
+            technologies: ['Nest.js', 'MySQL', 'TypeORM', 'Next.js', 'Socket.IO'],
+            features: ['Microservices architecture', 'Message queue system', 'OAuth2 authentication', 'Real-time analytics'],
         },
         {
             title: 'Future Nation Platform',
@@ -28,8 +28,8 @@ const Projects = () => {
             link: 'https://platform.futurenation.gov.bd',
             github: 'https://github.com/yourusername/future-nation',
             category: 'fullstack',
-            technologies: ['Node.js', 'Redis', 'RabbitMQ', 'React', 'MongoDB'],
-            features: ['Microservices architecture', 'Message queue system', 'OAuth2 authentication', 'Real-time analytics'],
+            technologies: ['Nest.js', 'Redis', 'RabbitMQ', 'Next.js', 'MongoDB', 'MySQL'],
+            features: ['Real-time updates and notifications', 'Multi-tenant architecture', 'Advanced caching system', 'Automated deployment pipeline'],
         },
     ];
 

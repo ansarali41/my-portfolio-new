@@ -28,9 +28,7 @@ jobs:
               run: npm ci
 
             - name: Build Project
-              run: |
-                  npm run build
-                  npm run export  # Add this if you want to generate static files
+              run: npm run build
 
             - name: Deploy to GitHub Pages
               uses: peaceiris/actions-gh-pages@v3

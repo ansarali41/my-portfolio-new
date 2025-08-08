@@ -50,7 +50,7 @@ const Hero = () => {
                                 Connect on LinkedIn
                             </a>
                             <a
-                                href="https://drive.google.com/file/d/13f1LSYShtJyVGZyurW4mD-_1FoD7Q1Yg/view?usp=sharing"
+                                href="https://drive.google.com/file/d/1PTy9wcXbyVvXBKoHYoqxhc3VvPm9YvHX/view?usp=sharing"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="gradient-border inline-block"

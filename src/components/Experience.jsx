@@ -4,9 +4,29 @@ const Experience = () => {
     const experiences = [
         {
             title: 'Software Engineer (Back-End)',
+            company: 'Gain Solutions Ltd',
+            location: 'Dhaka, Bangladesh (Onsite)',
+            period: 'June 2025 – Present',
+            achievements: [
+                {
+                    text: 'Designed and developed scalable back-end architecture for CRM, HR Management, and Payroll platforms using Node.js, GraphQL, and PostgreSQL.',
+                    skills: ['Node.js', 'GraphQL', 'PostgreSQL'],
+                },
+                {
+                    text: 'Implemented secure JWT-based authentication and optimized database performance with Sequelize and PostgreSQL.',
+                    skills: ['JWT', 'Sequelize', 'PostgreSQL'],
+                },
+                {
+                    text: 'Collaborated with cross-functional teams to deliver an enterprise-ready platform, enhancing system reliability',
+                    skills: ['System Architecture', 'AWS', 'Lambda', 'SQS', 'SAM', 'CI/CD'],
+                },
+            ],
+        },
+        {
+            title: 'Software Engineer (Back-End)',
             company: 'Amharc Tech Ltd',
             location: 'Dublin, Ireland (Remote)',
-            period: 'April 2023 – Present',
+            period: 'April 2023 – June 2025',
             achievements: [
                 {
                     text: 'Designed a scalable back-end architecture for SaaS, POS, and eCommerce platforms using Nest.js, TypeScript, and microservices.',

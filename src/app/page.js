@@ -7,6 +7,7 @@ import Experience from '../components/Experience';
 import Projects from '../components/Projects';
 import ProblemSolving from '../components/ProblemSolving';
 import Contact from '../components/Contact';
+import ScrollToTop from '../components/ScrollToTop';
 
 export default function Home() {
     return (
@@ -22,6 +23,7 @@ export default function Home() {
                 <ProblemSolving />
                 <Contact />
             </main>
+            <ScrollToTop />
         </>
     );
 }

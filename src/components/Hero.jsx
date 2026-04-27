@@ -3,7 +3,8 @@
 import Image from 'next/image';
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { FaAws, FaNodeJs, FaReact } from 'react-icons/fa';
+import { FaAws, FaLinkedinIn, FaNodeJs, FaReact } from 'react-icons/fa';
+import { FiFileText } from 'react-icons/fi';
 import { SiMongodb, SiMysql, SiNestjs, SiNextdotjs, SiPostgresql, SiTailwindcss, SiTypescript } from 'react-icons/si';
 import { TypeAnimation } from 'react-type-animation';
 
@@ -48,9 +49,6 @@ const Hero = () => {
                 <div className="flex flex-col-reverse md:flex-row items-center justify-between gap-12">
                     <motion.div variants={containerVariants} initial="hidden" animate="visible" className="md:w-1/2 space-y-8">
                         <div className="space-y-4">
-                            <motion.p variants={itemVariants} className="text-xs uppercase tracking-[0.2em] font-semibold text-blue-600 dark:text-blue-400">
-                                Welcome to my portfolio
-                            </motion.p>
                             <motion.h1 variants={itemVariants} className="font-display text-5xl lg:text-6xl font-bold leading-tight">
                                 Hi, I'm <span className="text-gradient-animated">MD Ansar Ali</span>
                             </motion.h1>
@@ -69,9 +67,10 @@ const Hero = () => {
                                 href="https://www.linkedin.com/in/dev-ansar-ali"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="hero-gradient px-8 py-4 rounded-full text-white hover:opacity-90 transition-opacity shadow-lg shadow-blue-500/20"
+                                className="inline-flex items-center gap-2 hero-gradient px-7 py-4 rounded-full text-white hover:opacity-90 transition-opacity shadow-lg shadow-blue-500/20"
                             >
-                                Connect on LinkedIn
+                                <FaLinkedinIn className="w-4 h-4" />
+                                <span>Connect on LinkedIn</span>
                             </a>
                             <a
                                 href="https://drive.google.com/file/d/1PTy9wcXbyVvXBKoHYoqxhc3VvPm9YvHX/view?usp=sharing"
@@ -79,7 +78,10 @@ const Hero = () => {
                                 rel="noopener noreferrer"
                                 className="gradient-border inline-block"
                             >
-                                <span className="block px-8 py-4 rounded-full hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">View Resume</span>
+                                <span className="flex items-center gap-2 px-7 py-4 rounded-full hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+                                    <FiFileText className="w-4 h-4" />
+                                    View Resume
+                                </span>
                             </a>
                         </motion.div>
 

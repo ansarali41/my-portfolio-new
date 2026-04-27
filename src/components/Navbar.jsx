@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
+import { FaGithub } from 'react-icons/fa';
 import ThemeToggle from './ThemeToggle';
 
 const navItems = [
@@ -76,14 +77,17 @@ const Navbar = () => {
                             );
                         })}
                         <ThemeToggle className="ml-2" />
-                        <a
+                        <motion.a
                             href="https://github.com/ansarali41"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="ml-2 px-4 py-2 rounded-full hero-gradient text-white text-sm hover:opacity-90 transition-opacity"
+                            whileHover={{ y: -1 }}
+                            whileTap={{ scale: 0.96 }}
+                            className="ml-2 inline-flex items-center gap-2 px-4 py-2 rounded-full hero-gradient text-white text-sm shadow-md shadow-blue-500/20 hover:opacity-90 transition-opacity"
                         >
-                            GitHub
-                        </a>
+                            <FaGithub className="w-4 h-4" />
+                            <span>GitHub</span>
+                        </motion.a>
                     </div>
 
                     <div className="md:hidden flex items-center gap-2">
@@ -128,9 +132,9 @@ const Navbar = () => {
                                     href="https://github.com/ansarali41"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="block py-2 px-4 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
+                                    className="flex items-center gap-2 py-2 px-4 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
                                 >
-                                    GitHub
+                                    <FaGithub className="w-4 h-4" /> GitHub
                                 </a>
                             </div>
                         </motion.div>

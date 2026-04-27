@@ -1,123 +1,130 @@
-const About = () => {
-    const experiences = [
-        {
-            icon: (
-                <svg className="w-6 h-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                    />
-                </svg>
-            ),
-            title: 'Professional Journey',
-            description: 'Currently working as a Software Engineer (Back-End) at Amharc Tech Ltd, specializing in developing scalable solutions using modern technologies.',
-        },
-        {
-            icon: (
-                <svg className="w-6 h-6 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                    />
-                </svg>
-            ),
-            title: 'Technical Expertise',
-            description: 'Proficient in building robust back-end systems, microservices architecture, and optimizing database performance.',
-        },
-        {
-            icon: (
-                <svg className="w-6 h-6 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                </svg>
-            ),
-            title: 'Problem Solving',
-            description: 'Active problem solver with strong presence on platforms like LeetCode, Codeforces, and HackerRank.',
-        },
-    ];
+'use client';
 
+import { motion } from 'framer-motion';
+import { FiAward, FiBriefcase, FiCheckCircle, FiCpu, FiZap } from 'react-icons/fi';
+import MotionSection from './MotionSection';
+import SectionHeading from './SectionHeading';
+
+const cards = [
+    {
+        icon: FiBriefcase,
+        title: 'Professional Journey',
+        description: 'Currently a Software Engineer at Tulip Tech, building Empathika — a home care platform — on a Nest.js monorepo with PostgreSQL and AWS.',
+        gradient: 'from-blue-500 to-cyan-500',
+        ring: 'ring-blue-500/20',
+    },
+    {
+        icon: FiCpu,
+        title: 'Technical Expertise',
+        description: 'Proficient in building robust back-end systems, microservices architecture, event-driven workflows, and optimizing database performance.',
+        gradient: 'from-purple-500 to-pink-500',
+        ring: 'ring-purple-500/20',
+    },
+    {
+        icon: FiZap,
+        title: 'Problem Solving',
+        description: 'Active problem solver with a strong presence on platforms like LeetCode, Codeforces, and HackerRank.',
+        gradient: 'from-emerald-500 to-teal-500',
+        ring: 'ring-emerald-500/20',
+    },
+];
+
+const whatIDo = [
+    'Design and implement scalable back-end solutions',
+    'Develop microservices and event-driven architecture',
+    'Optimize database performance and complex query tuning',
+    'Build real-time communication systems',
+    'Create efficient APIs and automated workflows',
+    'Deliver SaaS, ERP, healthcare, CRM, and similar enterprise applications',
+];
+
+const containerVariants = {
+    hidden: {},
+    visible: { transition: { staggerChildren: 0.12 } },
+};
+
+const itemVariants = {
+    hidden: { opacity: 0, y: 24 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
+};
+
+const About = () => {
     return (
-        <section id="about" className="relative py-20 overflow-hidden">
-            {/* Background decoration */}
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 to-purple-50/50 dark:from-gray-900 dark:to-gray-800 -z-10" />
-            <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] -z-10" />
+        <MotionSection id="about" className="relative py-20 overflow-hidden">
+            <div className="absolute inset-0 bg-dots opacity-60 -z-10" />
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/40 to-transparent dark:via-gray-900/40 -z-10" />
 
             <div className="max-w-7xl mx-auto px-6">
-                <div className="text-center mb-16">
-                    <h2 className="text-3xl font-bold">
-                        About <span className="hero-gradient bg-clip-text text-transparent">Me</span>
-                    </h2>
-                    <p className="mt-4 text-gray-600 dark:text-gray-400">
-                        Passionate software engineer with a focus on building scalable, reliable, and efficient applications. <br /> Specializing in back-end development with
-                        expertise in modern frameworks and databases.
-                    </p>
-                </div>
+                <SectionHeading
+                    eyebrow="About"
+                    title="About"
+                    highlight="Me"
+                    description="Software engineer with 4+ years of experience building back-end systems for healthcare, CRM, SaaS, and ERP platforms. I specialize in Nest.js, Node.js, and event-driven architecture on AWS — turning complex domain workflows into reliable, scalable APIs."
+                />
 
-                <div className="grid md:grid-cols-3 gap-8">
-                    {experiences?.map((item, index) => (
-                        <div key={index} className="card p-6 hover:translate-y-[-4px] transition-all duration-300">
-                            <div className="rounded-full bg-gray-100 dark:bg-gray-800 p-3 w-fit mb-4">{item.icon}</div>
-                            <h3 className="text-xl font-semibold mb-3">{item.title}</h3>
-                            <p className="text-gray-600 dark:text-gray-400">{item.description}</p>
-                        </div>
-                    ))}
-                </div>
+                <motion.div variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} className="grid md:grid-cols-3 gap-6">
+                    {cards.map((card, idx) => {
+                        const Icon = card.icon;
+                        return (
+                            <motion.div
+                                key={idx}
+                                variants={itemVariants}
+                                whileHover={{ y: -6 }}
+                                className={`group relative overflow-hidden rounded-2xl p-6 bg-white dark:bg-gray-800/80 backdrop-blur-sm border border-[var(--border-subtle)] shadow-sm hover:shadow-xl transition-shadow ring-1 ${card.ring}`}
+                            >
+                                <div className={`absolute -top-12 -right-12 w-32 h-32 rounded-full bg-gradient-to-br ${card.gradient} opacity-10 blur-2xl group-hover:opacity-20 transition-opacity`} />
+                                <div className={`inline-flex w-12 h-12 items-center justify-center rounded-xl bg-gradient-to-br ${card.gradient} text-white mb-4 shadow-md`}>
+                                    <Icon className="w-5 h-5" />
+                                </div>
+                                <h3 className="font-display text-xl font-semibold mb-2">{card.title}</h3>
+                                <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">{card.description}</p>
+                            </motion.div>
+                        );
+                    })}
+                </motion.div>
 
-                <div className="mt-16 grid md:grid-cols-2 gap-8">
-                    <div className="card p-8">
-                        <h3 className="text-xl font-semibold mb-4">What I Do</h3>
-                        <ul className="space-y-3">
-                            {[
-                                'Design and implement scalable back-end solutions',
-                                'Develop microservices architecture',
-                                'Optimize database performance',
-                                'Build real-time communication systems',
-                                'Create efficient APIs and automated workflows',
-                            ].map((item, index) => (
-                                <li key={index} className="flex items-center gap-3 text-gray-600 dark:text-gray-400">
-                                    <svg className="w-5 h-5 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                                    </svg>
-                                    {item}
-                                </li>
+                <div className="mt-12 grid md:grid-cols-2 gap-6">
+                    <motion.div
+                        initial={{ opacity: 0, x: -20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true, margin: '-50px' }}
+                        transition={{ duration: 0.5 }}
+                        className="rounded-2xl p-8 bg-white dark:bg-gray-800/80 border border-[var(--border-subtle)] shadow-sm"
+                    >
+                        <h3 className="font-display text-xl font-semibold mb-5">What I Do</h3>
+                        <motion.ul variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true }} className="space-y-3">
+                            {whatIDo.map((item, idx) => (
+                                <motion.li key={idx} variants={itemVariants} className="flex items-start gap-3 text-gray-700 dark:text-gray-300">
+                                    <FiCheckCircle className="w-5 h-5 mt-0.5 flex-shrink-0 text-blue-600 dark:text-blue-400" />
+                                    <span>{item}</span>
+                                </motion.li>
                             ))}
-                        </ul>
-                    </div>
+                        </motion.ul>
+                    </motion.div>
 
-                    <div className="card p-8">
-                        <h3 className="text-xl font-semibold mb-4">Certifications</h3>
-                        <div className="space-y-4">
+                    <motion.div
+                        initial={{ opacity: 0, x: 20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true, margin: '-50px' }}
+                        transition={{ duration: 0.5 }}
+                        className="rounded-2xl p-8 bg-white dark:bg-gray-800/80 border border-[var(--border-subtle)] shadow-sm"
+                    >
+                        <h3 className="font-display text-xl font-semibold mb-5">Certifications</h3>
+                        <div className="space-y-5">
                             <div className="flex items-start gap-4">
-                                <div className="rounded-full bg-blue-100 dark:bg-blue-900/30 p-2">
-                                    <svg className="w-5 h-5 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path
-                                            strokeLinecap="round"
-                                            strokeLinejoin="round"
-                                            strokeWidth={2}
-                                            d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"
-                                        />
-                                    </svg>
+                                <div className="rounded-xl bg-blue-100 dark:bg-blue-900/30 p-2.5">
+                                    <FiAward className="w-5 h-5 text-blue-600 dark:text-blue-400" />
                                 </div>
                                 <div>
                                     <h4 className="font-medium">MERN Stack Web Development</h4>
-                                    <a href="https://cutt.ly/sHCQl3g" target="_blank" rel="noopener noreferrer" className="text-sm text-blue-600 hover:underline">
+                                    <a href="https://cutt.ly/sHCQl3g" target="_blank" rel="noopener noreferrer" className="text-sm text-blue-600 dark:text-blue-400 hover:underline">
                                         View Certificate →
                                     </a>
                                 </div>
                             </div>
                             <div className="flex items-start gap-4">
-                                <div className="rounded-full bg-green-100 dark:bg-green-900/30 p-2">
-                                    <svg className="w-5 h-5 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path
-                                            strokeLinecap="round"
-                                            strokeLinejoin="round"
-                                            strokeWidth={2}
-                                            d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"
-                                        />
-                                    </svg>
+                                <div className="rounded-xl bg-emerald-100 dark:bg-emerald-900/30 p-2.5">
+                                    <FiAward className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
                                 </div>
                                 <div>
                                     <h4 className="font-medium">10 Days of JavaScript Challenge</h4>
@@ -125,10 +132,10 @@ const About = () => {
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </motion.div>
                 </div>
             </div>
-        </section>
+        </MotionSection>
     );
 };
 

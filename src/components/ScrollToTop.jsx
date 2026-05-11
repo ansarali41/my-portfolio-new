@@ -26,12 +26,12 @@ export default function ScrollToTop() {
                     initial={{ opacity: 0, y: 16, scale: 0.85 }}
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: 16, scale: 0.85 }}
-                    whileHover={{ y: -3 }}
+                    whileHover={{ y: -2 }}
                     whileTap={{ scale: 0.92 }}
                     transition={{ duration: 0.2, ease: 'easeOut' }}
-                    className="fixed bottom-6 right-6 z-50 inline-flex items-center justify-center w-11 h-11 rounded-full hero-gradient text-white shadow-lg shadow-blue-500/30 hover:shadow-xl hover:shadow-blue-500/40 transition-shadow"
+                    className="fixed bottom-6 right-6 z-50 inline-flex items-center justify-center w-10 h-10 rounded-full bg-[var(--foreground)] text-[var(--background)] shadow-lg hover:opacity-90 transition-opacity"
                 >
-                    <FiArrowUp className="w-5 h-5" />
+                    <FiArrowUp className="w-4 h-4" />
                 </motion.button>
             )}
         </AnimatePresence>

@@ -20,7 +20,7 @@ const Navbar = () => {
 
     useEffect(() => {
         const handleScroll = () => {
-            setScrolled(window.scrollY > 50);
+            setScrolled(window.scrollY > 30);
         };
 
         window.addEventListener('scroll', handleScroll);
@@ -45,55 +45,59 @@ const Navbar = () => {
     return (
         <nav
             className={`fixed w-full z-50 transition-all duration-300 ${
-                scrolled ? 'glass-effect py-2 border-b border-[var(--border-subtle)]' : 'bg-transparent py-4'
+                scrolled ? 'glass-effect py-3 border-b border-[var(--border-subtle)]' : 'bg-transparent py-5'
             }`}
         >
-            <div className="max-w-7xl mx-auto px-6">
+            <div className="max-w-6xl mx-auto px-6">
                 <div className="flex justify-between items-center">
-                    <a href="#" className="font-display text-2xl font-bold hero-gradient bg-clip-text text-transparent">
-                        {'</ Ansar Ali >'}
+                    <a href="#" className="font-display text-lg font-semibold tracking-tight text-[var(--foreground)]">
+                        Ansar Ali<span className="accent-text">.</span>
                     </a>
 
-                    <div className="hidden md:flex items-center space-x-2">
+                    <div className="hidden md:flex items-center gap-1">
                         {navItems?.map(item => {
                             const isActive = activeId === item.id;
                             return (
                                 <a
                                     key={item.name}
                                     href={item.href}
-                                    className={`relative px-3 py-2 text-sm transition-colors ${
-                                        isActive ? 'text-blue-600 dark:text-blue-400' : 'text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400'
+                                    className={`relative px-3 py-2 text-sm font-medium transition-colors ${
+                                        isActive ? 'text-[var(--foreground)]' : 'text-[var(--muted)] hover:text-[var(--foreground)]'
                                     }`}
                                 >
                                     {item.name}
                                     {isActive && (
                                         <motion.span
                                             layoutId="navbar-underline"
-                                            className="absolute left-3 right-3 -bottom-0.5 h-0.5 rounded-full hero-gradient"
+                                            className="absolute left-3 right-3 -bottom-0.5 h-[2px] rounded-full bg-[var(--foreground)]"
                                             transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                                         />
                                     )}
                                 </a>
                             );
                         })}
-                        <ThemeToggle className="ml-2" />
-                        <motion.a
-                            href="https://github.com/ansarali41"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            whileHover={{ y: -1 }}
-                            whileTap={{ scale: 0.96 }}
-                            className="ml-2 inline-flex items-center gap-2 px-4 py-2 rounded-full hero-gradient text-white text-sm shadow-md shadow-blue-500/20 hover:opacity-90 transition-opacity"
-                        >
-                            <FaGithub className="w-4 h-4" />
-                            <span>GitHub</span>
-                        </motion.a>
+                        <div className="ml-2 flex items-center gap-2">
+                            <ThemeToggle />
+                            <a
+                                href="https://github.com/ansarali41"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--foreground)] text-[var(--background)] text-sm font-medium hover:opacity-90 transition-opacity"
+                            >
+                                <FaGithub className="w-4 h-4" />
+                                <span>GitHub</span>
+                            </a>
+                        </div>
                     </div>
 
                     <div className="md:hidden flex items-center gap-2">
                         <ThemeToggle />
-                        <button aria-label="Toggle menu" className="text-gray-700 dark:text-gray-300" onClick={() => setIsOpen(!isOpen)}>
-                            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <button
+                            aria-label="Toggle menu"
+                            className="text-[var(--foreground)] p-2 rounded-lg hover:bg-[var(--surface-muted)] transition-colors"
+                            onClick={() => setIsOpen(!isOpen)}
+                        >
+                            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 {isOpen ? (
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                                 ) : (
@@ -113,15 +117,15 @@ const Navbar = () => {
                             transition={{ duration: 0.25, ease: 'easeOut' }}
                             className="md:hidden overflow-hidden"
                         >
-                            <div className="py-4 glass-effect mt-2 rounded-xl border border-[var(--border-subtle)]">
+                            <div className="py-3 mt-3 rounded-2xl border border-[var(--border-subtle)] bg-[var(--surface)]">
                                 {navItems?.map(item => (
                                     <a
                                         key={item.name}
                                         href={item.href}
-                                        className={`block py-2 px-4 transition-colors ${
+                                        className={`block py-2.5 px-5 text-sm transition-colors ${
                                             activeId === item.id
-                                                ? 'text-blue-600 dark:text-blue-400 font-medium'
-                                                : 'text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400'
+                                                ? 'text-[var(--foreground)] font-medium'
+                                                : 'text-[var(--muted)] hover:text-[var(--foreground)]'
                                         }`}
                                         onClick={() => setIsOpen(false)}
                                     >
@@ -132,7 +136,7 @@ const Navbar = () => {
                                     href="https://github.com/ansarali41"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="flex items-center gap-2 py-2 px-4 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
+                                    className="flex items-center gap-2 py-2.5 px-5 text-sm text-[var(--muted)] hover:text-[var(--foreground)]"
                                 >
                                     <FaGithub className="w-4 h-4" /> GitHub
                                 </a>

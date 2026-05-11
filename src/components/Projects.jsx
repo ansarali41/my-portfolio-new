@@ -78,7 +78,7 @@ const projects = [
 ];
 
 const categories = [
-    { id: 'all', label: 'All Projects' },
+    { id: 'all', label: 'All' },
     { id: 'backend', label: 'Backend' },
     { id: 'frontend', label: 'Frontend' },
     { id: 'fullstack', label: 'Full Stack' },
@@ -87,42 +87,42 @@ const categories = [
 const FeaturedCard = ({ project }) => (
     <motion.div
         layout
-        initial={{ opacity: 0, y: 30 }}
+        initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: 20 }}
+        exit={{ opacity: 0, y: 16 }}
         transition={{ duration: 0.5 }}
-        className="relative overflow-hidden rounded-3xl bg-white dark:bg-gray-800/80 border border-[var(--border-subtle)] shadow-lg group"
+        className="surface-card overflow-hidden group"
     >
-        <div className="absolute inset-x-0 top-0 px-6 py-2 flex items-center gap-2 z-10">
-            <span className="text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full bg-gradient-to-r from-amber-400 to-rose-500 text-white shadow">Featured</span>
-        </div>
         <div className="grid md:grid-cols-2">
-            <div className="relative h-72 md:h-auto overflow-hidden">
-                <Image src={project.image} alt={project.title} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover transition-transform duration-700 group-hover:scale-105" />
-                <div className="absolute inset-0 bg-gradient-to-tr from-blue-600/40 via-transparent to-purple-600/30 mix-blend-multiply" />
+            <div className="relative h-72 md:h-auto overflow-hidden bg-[var(--surface-muted)]">
+                <Image src={project.image} alt={project.title} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover transition-transform duration-700 group-hover:scale-[1.03]" />
             </div>
-            <div className="p-7 md:p-9 flex flex-col">
-                <h3 className="font-display text-2xl md:text-3xl font-bold mb-3">{project.title}</h3>
-                <p className="text-gray-600 dark:text-gray-400 mb-5 leading-relaxed text-sm">{project.description}</p>
-                <div className="flex flex-wrap gap-2 mb-5">
+            <div className="p-8 md:p-10 flex flex-col">
+                <div className="flex items-center gap-2 mb-4">
+                    <span className="eyebrow">Featured</span>
+                    <span className="h-px flex-1 bg-[var(--border-subtle)]" />
+                </div>
+                <h3 className="font-display text-2xl md:text-[28px] font-semibold mb-3 tracking-tight leading-tight">{project.title}</h3>
+                <p className="text-[var(--muted)] mb-5 leading-relaxed text-sm">{project.description}</p>
+                <div className="flex flex-wrap gap-1.5 mb-5">
                     {project.technologies.map(tech => (
-                        <span key={tech} className="text-xs px-2.5 py-1 rounded-full bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 border border-blue-200/50 dark:border-blue-800/50">
+                        <span key={tech} className="chip text-[11px]">
                             {tech}
                         </span>
                     ))}
                 </div>
-                <ul className="space-y-2 mb-6">
+                <ul className="space-y-2 mb-7">
                     {project.features.map((f, i) => (
-                        <li key={i} className="flex items-start gap-2 text-sm text-gray-600 dark:text-gray-400">
-                            <FiCheck className="w-4 h-4 mt-0.5 flex-shrink-0 text-blue-600 dark:text-blue-400" />
+                        <li key={i} className="flex items-start gap-2.5 text-sm text-[var(--muted-strong)]">
+                            <FiCheck className="w-4 h-4 mt-0.5 flex-shrink-0 accent-text" />
                             <span>{f}</span>
                         </li>
                     ))}
                 </ul>
                 <div className="mt-auto">
-                    <motion.a whileHover={{ x: 2 }} href={project.link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 hero-gradient px-5 py-2.5 rounded-full text-white text-sm shadow-lg shadow-blue-500/20">
+                    <a href={project.link} target="_blank" rel="noopener noreferrer" className="btn-primary">
                         Visit Live <FiArrowUpRight className="w-4 h-4" />
-                    </motion.a>
+                    </a>
                 </div>
             </div>
         </div>
@@ -132,42 +132,43 @@ const FeaturedCard = ({ project }) => (
 const ProjectCard = ({ project }) => (
     <motion.div
         layout
-        initial={{ opacity: 0, y: 30 }}
+        initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: 20, scale: 0.97 }}
+        exit={{ opacity: 0, y: 16, scale: 0.97 }}
         transition={{ duration: 0.4 }}
-        whileHover={{ y: -6 }}
-        className="group rounded-2xl overflow-hidden bg-white dark:bg-gray-800/80 border border-[var(--border-subtle)] shadow-sm hover:shadow-xl transition-shadow"
+        className="surface-card overflow-hidden group flex flex-col"
     >
-        <div className="relative h-56 overflow-hidden">
-            <Image src={project.image} alt={project.title} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover transition-transform duration-500 group-hover:scale-110" />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-            <div className="absolute bottom-4 left-4 right-4 text-white">
-                <h3 className="font-display text-xl font-semibold mb-2">{project.title}</h3>
-                <div className="flex flex-wrap gap-1.5">
-                    {project.technologies.slice(0, 3).map(tech => (
-                        <span key={tech} className="text-[11px] px-2 py-0.5 rounded-full bg-white/20 backdrop-blur-sm">
-                            {tech}
-                        </span>
-                    ))}
-                    {project.technologies.length > 3 && (
-                        <span className="text-[11px] px-2 py-0.5 rounded-full bg-white/20 backdrop-blur-sm">+{project.technologies.length - 3}</span>
-                    )}
-                </div>
-            </div>
+        <div className="relative h-52 overflow-hidden bg-[var(--surface-muted)]">
+            <Image src={project.image} alt={project.title} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover transition-transform duration-500 group-hover:scale-105" />
         </div>
-        <div className="p-6">
-            <p className="text-sm text-gray-600 dark:text-gray-400 mb-4 leading-relaxed">{project.description}</p>
+        <div className="p-6 flex flex-col flex-1">
+            <h3 className="font-display text-lg font-semibold mb-2 tracking-tight">{project.title}</h3>
+            <div className="flex flex-wrap gap-1.5 mb-4">
+                {project.technologies.slice(0, 4).map(tech => (
+                    <span key={tech} className="chip text-[11px]">
+                        {tech}
+                    </span>
+                ))}
+                {project.technologies.length > 4 && (
+                    <span className="chip text-[11px]">+{project.technologies.length - 4}</span>
+                )}
+            </div>
+            <p className="text-sm text-[var(--muted)] mb-4 leading-relaxed">{project.description}</p>
             <ul className="space-y-1.5 mb-5">
                 {project.features.slice(0, 3).map((feature, idx) => (
-                    <li key={idx} className="flex items-start gap-2 text-sm text-gray-600 dark:text-gray-400">
-                        <FiCheck className="w-4 h-4 mt-0.5 flex-shrink-0 text-blue-600 dark:text-blue-400" />
+                    <li key={idx} className="flex items-start gap-2.5 text-sm text-[var(--muted-strong)]">
+                        <FiCheck className="w-3.5 h-3.5 mt-0.5 flex-shrink-0 accent-text" />
                         <span>{feature}</span>
                     </li>
                 ))}
             </ul>
-            <div>
-                <a href={project.link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 hero-gradient px-4 py-2 rounded-lg text-white text-sm hover:opacity-90 transition-opacity">
+            <div className="mt-auto pt-2">
+                <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-sm font-medium text-[var(--foreground)] hover:opacity-70 transition-opacity"
+                >
                     View Live <FiArrowUpRight className="w-3.5 h-3.5" />
                 </a>
             </div>
@@ -182,26 +183,24 @@ const Projects = () => {
     const rest = filtered.filter(p => !p.featured);
 
     return (
-        <MotionSection id="projects" className="relative py-20 overflow-hidden">
-            <div className="absolute inset-0 bg-mesh -z-10" />
-
-            <div className="max-w-7xl mx-auto px-6">
+        <MotionSection id="projects" className="relative py-24">
+            <div className="max-w-6xl mx-auto px-6">
                 <SectionHeading eyebrow="Portfolio" title="Featured" highlight="Projects" description="Some of my recent work and contributions." />
 
                 <div className="flex justify-center mb-10">
-                    <div className="relative inline-flex rounded-full bg-gray-100 dark:bg-gray-800 p-1.5 border border-[var(--border-subtle)]">
+                    <div className="relative inline-flex rounded-full bg-[var(--surface-muted)] p-1 border border-[var(--border-subtle)]">
                         {categories.map(category => {
                             const isActive = activeTab === category.id;
                             return (
                                 <button
                                     key={category.id}
                                     onClick={() => setActiveTab(category.id)}
-                                    className={`relative px-5 py-2 rounded-full text-sm font-medium transition-colors ${isActive ? 'text-white' : 'text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white'}`}
+                                    className={`relative px-5 py-1.5 rounded-full text-sm font-medium transition-colors ${isActive ? 'text-[var(--background)]' : 'text-[var(--muted)] hover:text-[var(--foreground)]'}`}
                                 >
                                     {isActive && (
                                         <motion.span
                                             layoutId="projects-tab-bg"
-                                            className="absolute inset-0 hero-gradient rounded-full"
+                                            className="absolute inset-0 bg-[var(--foreground)] rounded-full"
                                             transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                                         />
                                     )}
@@ -212,11 +211,11 @@ const Projects = () => {
                     </div>
                 </div>
 
-                <div className="space-y-8">
+                <div className="space-y-6">
                     <AnimatePresence mode="popLayout">
                         {featured && <FeaturedCard key={featured.title} project={featured} />}
                         {rest.length > 0 && (
-                            <motion.div layout className="grid md:grid-cols-2 gap-6">
+                            <motion.div layout className="grid md:grid-cols-2 gap-5">
                                 {rest.map(project => (
                                     <ProjectCard key={project.title} project={project} />
                                 ))}

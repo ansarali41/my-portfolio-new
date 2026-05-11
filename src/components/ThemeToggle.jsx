@@ -25,7 +25,7 @@ export default function ThemeToggle({ className = '' }) {
             onClick={() => setTheme(isDark ? 'light' : 'dark')}
             whileTap={{ scale: 0.9 }}
             whileHover={{ scale: 1.05 }}
-            className={`relative inline-flex items-center justify-center w-9 h-9 rounded-full border border-gray-200 dark:border-gray-700 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors ${className}`}
+            className={`relative inline-flex items-center justify-center w-9 h-9 rounded-full border border-[var(--border-subtle)] bg-[var(--surface)] text-[var(--muted-strong)] hover:text-[var(--foreground)] hover:border-[var(--border-strong)] transition-colors ${className}`}
         >
             <AnimatePresence mode="wait" initial={false}>
                 <motion.span

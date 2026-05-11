@@ -125,64 +125,61 @@ const Experience = () => {
     const { scrollYProgress } = useScroll({ target: trackRef, offset: ['start 60%', 'end 40%'] });
 
     return (
-        <MotionSection id="experience" className="relative py-20 overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-tr from-blue-50/40 to-purple-50/40 dark:from-gray-900 dark:to-gray-800/80 -z-10" />
-
-            <div className="max-w-7xl mx-auto px-6">
+        <MotionSection id="experience" className="relative py-24">
+            <div className="max-w-6xl mx-auto px-6">
                 <SectionHeading eyebrow="Career" title="Work" highlight="Experience" description="My professional journey and achievements." />
 
                 <div ref={trackRef} className="relative">
-                    <div className="absolute left-4 top-0 bottom-0 w-[2px] bg-gray-200 dark:bg-gray-700" />
+                    <div className="absolute left-[7px] top-0 bottom-0 w-px bg-[var(--border-subtle)]" />
                     <motion.div
                         style={{ scaleY: scrollYProgress, transformOrigin: 'top' }}
-                        className="absolute left-4 top-0 bottom-0 w-[2px] bg-gradient-to-b from-blue-500 via-purple-500 to-cyan-500"
+                        className="absolute left-[7px] top-0 bottom-0 w-px bg-[var(--foreground)]"
                     />
 
                     <div className="space-y-10">
                         {experiences.map((exp, index) => (
                             <motion.div
                                 key={index}
-                                initial={{ opacity: 0, x: -40 }}
-                                whileInView={{ opacity: 1, x: 0 }}
+                                initial={{ opacity: 0, y: 24 }}
+                                whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true, margin: '-80px' }}
                                 transition={{ duration: 0.55, ease: 'easeOut', delay: index * 0.05 }}
-                                className="relative flex flex-col gap-8"
+                                className="relative"
                             >
                                 <motion.div
                                     initial={{ scale: 0 }}
                                     whileInView={{ scale: 1 }}
                                     viewport={{ once: true, margin: '-80px' }}
                                     transition={{ type: 'spring', stiffness: 200, damping: 15, delay: index * 0.05 + 0.2 }}
-                                    className="absolute left-3 w-6 h-6 rounded-full hero-gradient ring-4 ring-white dark:ring-gray-900"
+                                    className="absolute left-0 top-7 w-[15px] h-[15px] rounded-full bg-[var(--background)] border-2 border-[var(--foreground)]"
                                 />
 
-                                <div className="ml-12 w-[calc(100%-3rem)]">
-                                    <div className="rounded-2xl p-6 bg-white dark:bg-gray-800/80 backdrop-blur-sm border border-[var(--border-subtle)] shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-                                        <div className="mb-4 flex flex-wrap items-start justify-between gap-2">
+                                <div className="ml-10">
+                                    <div className="surface-card p-6">
+                                        <div className="mb-4 flex flex-wrap items-start justify-between gap-3">
                                             <div>
-                                                <h3 className="font-display text-xl font-bold mb-1">{exp.title}</h3>
-                                                <p className="font-medium text-gray-700 dark:text-gray-300">{exp.company}</p>
-                                                <p className="text-sm text-gray-500 dark:text-gray-400">{exp.location}</p>
+                                                <h3 className="font-display text-lg font-semibold mb-1 tracking-tight">{exp.title}</h3>
+                                                <p className="text-sm font-medium text-[var(--muted-strong)]">{exp.company}</p>
+                                                <p className="text-xs text-[var(--muted)] mt-0.5">{exp.location}</p>
                                             </div>
-                                            <span className="text-xs font-medium px-3 py-1 rounded-full bg-blue-100/70 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 whitespace-nowrap">
+                                            <span className="text-[11px] font-medium px-2.5 py-1 rounded-full bg-[var(--surface-muted)] border border-[var(--border-subtle)] text-[var(--muted-strong)] whitespace-nowrap">
                                                 {exp.period}
                                             </span>
                                         </div>
 
-                                        <ul className="space-y-3">
+                                        <ul className="space-y-4 mt-5">
                                             {exp.achievements.map((achievement, i) => (
-                                                <li key={i} className="relative pl-6">
-                                                    <div className="absolute left-0 top-2 w-2 h-2 rounded-full bg-blue-600" />
-                                                    <p className="text-gray-700 dark:text-gray-300 mb-2 text-sm">{achievement.text}</p>
-                                                    <div className="flex flex-wrap gap-2">
+                                                <li key={i} className="relative pl-5">
+                                                    <div className="absolute left-0 top-2 w-1 h-1 rounded-full bg-[var(--muted)]" />
+                                                    <p className="text-[var(--muted-strong)] mb-2.5 text-sm leading-relaxed">{achievement.text}</p>
+                                                    <div className="flex flex-wrap gap-1.5">
                                                         {achievement.skills.map((skill, j) => (
-                                                            <motion.span
+                                                            <span
                                                                 key={j}
-                                                                whileHover={{ scale: 1.08 }}
-                                                                className="text-xs px-2 py-1 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300"
+                                                                className="chip text-[11px] px-2 py-0.5"
                                                             >
                                                                 {skill}
-                                                            </motion.span>
+                                                            </span>
                                                         ))}
                                                     </div>
                                                 </li>

@@ -15,9 +15,9 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata = {
-    title: 'MD Ansar Ali - Software Engineer',
-    description: 'Portfolio of MD Ansar Ali - A passionate Software Engineer specializing in back-end development and building scalable applications.',
-    keywords: ['Software Engineer', 'Back-end Developer', 'Full Stack Developer', 'Node.js', 'React', 'TypeScript'],
+    title: 'Under Maintenance',
+    description: 'This website is currently under maintenance.',
+    robots: { index: false },
 };
 
 export default function RootLayout({ children }) {
